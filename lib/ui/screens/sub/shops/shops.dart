@@ -1,8 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/ui/components/dummy_data.dart';
 import 'package:flutter_ecommerce/ui/components/widgets/shops_list.dart';
 import 'package:flutter_ecommerce/ui/components/widgets/widget_header.dart';
-
 class Shops extends StatefulWidget {
   final int navId;
 
@@ -18,7 +18,8 @@ class _ShopsState extends State<Shops> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Shops', style: TextStyle(fontWeight: FontWeight.w700)),
+          title:
+              Text('Shops', style: TextStyle(fontWeight: FontWeight.w700)).tr(),
           centerTitle: true,
           elevation: 10,
           shadowColor: Colors.black12,

@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:line_icons/line_icons.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 class ShopAccount extends StatefulWidget {
   @override
   _ShopAccountState createState() => _ShopAccountState();
@@ -14,7 +14,7 @@ class _ShopAccountState extends State<ShopAccount> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('My Shop', style: TextStyle(fontWeight: FontWeight.w700)),
+          title: Text('My Shop', style: TextStyle(fontWeight: FontWeight.w700)).tr(),
           centerTitle: true,
           elevation: 10,
           shadowColor: Colors.black12,
@@ -89,7 +89,7 @@ class _ShopAccountState extends State<ShopAccount> {
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 28.0),
-                                  ),
+                                  ).tr(),
                                   CupertinoButton(
                                     padding: EdgeInsets.zero,
                                     child: Icon(

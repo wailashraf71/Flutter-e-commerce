@@ -1,10 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/ui/components/dummy_data.dart';
 import 'package:flutter_ecommerce/ui/components/widgets/order_widget.dart';
 import 'package:flutter_ecommerce/ui/screens/sub/checkout.dart';
 import 'package:get/get.dart';
-
 class Cart extends StatefulWidget {
   @override
   _CartState createState() => _CartState();
@@ -15,7 +15,7 @@ class _CartState extends State<Cart> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cart', style: TextStyle(fontWeight: FontWeight.w700)),
+        title: Text('Cart', style: TextStyle(fontWeight: FontWeight.w700)).tr(),
         centerTitle: true,
         elevation: 10,
         shadowColor: Colors.black12,
@@ -27,21 +27,21 @@ class _CartState extends State<Cart> {
           children: <Widget>[
             Expanded(
                 child: ListView.separated(
-              itemCount: 3,
-              itemBuilder: (context, index) {
-                return Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10),
-                    child: OrderWidget(
-                        title: products[index]['title'],
-                        image: products[index]['image']));
-              },
-              separatorBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 35),
-                  child: Divider(),
-                );
-              },
-            )),
+                  itemCount: 3,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                        padding: EdgeInsets.symmetric(vertical: 10),
+                        child: OrderWidget(
+                            title: products[index]['title'],
+                            image: products[index]['image']));
+                  },
+                  separatorBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 35),
+                      child: Divider(),
+                    );
+                  },
+                )),
           ]),
       bottomNavigationBar: buildBottomBar(context),
     );
@@ -67,10 +67,10 @@ class _CartState extends State<Cart> {
               children: <Widget>[
                 Text('Total Price',
                     style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
+                    TextStyle(fontWeight: FontWeight.bold, fontSize: 17)).tr(),
                 Text("\$76",
                     style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
+                    TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
               ],
             ),
           ),
@@ -90,7 +90,7 @@ class _CartState extends State<Cart> {
                             style: TextStyle(
                                 fontSize: 19,
                                 color: Colors.white,
-                                fontWeight: FontWeight.w800))),
+                                fontWeight: FontWeight.w800)).tr()),
                   )),
             ),
           )

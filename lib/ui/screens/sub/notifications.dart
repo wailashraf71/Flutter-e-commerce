@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/ui/components/dummy_data.dart';
 import 'package:line_icons/line_icons.dart';
-
 class Notifications extends StatefulWidget {
   @override
   _NotificationsState createState() => _NotificationsState();
@@ -13,8 +13,9 @@ class _NotificationsState extends State<Notifications> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notifications',
-            style: TextStyle(fontWeight: FontWeight.w700)),
+        title:
+            Text('Notifications', style: TextStyle(fontWeight: FontWeight.w700))
+                .tr(),
         centerTitle: true,
         elevation: 10,
         shadowColor: Colors.black12,
@@ -37,19 +38,19 @@ class _NotificationsState extends State<Notifications> {
                             children: <Widget>[
                               option(
                                   title: 'Order confirmed',
-                                  description: 'Your order has been recieved',
+                                  description: 'Your order has been received',
                                   isChecked: true),
                               option(
                                   title: 'Preparing order',
                                   description: 'Your order has been Prepared',
                                   isChecked: true),
                               option(
-                                  title: 'Delivery in progress ',
-                                  description: 'Your order has been recieved',
+                                  title: 'Delivery in progress',
+                                  description: 'Your order is being delivered',
                                   isChecked: true),
                               option(
                                   title: 'Order Delivered',
-                                  description: 'Your order has been recieved',
+                                  description: 'Your order has been shipped',
                                   isChecked: false,
                                   divider: false),
                             ],
@@ -63,7 +64,7 @@ class _NotificationsState extends State<Notifications> {
                     Text(
                       'Order id - 423621',
                       style: TextStyle(fontSize: 18),
-                    ),
+                    ).tr(),
                     SizedBox(height: 15),
                     Text(
                       'We will start shipping your products soon',
@@ -74,7 +75,7 @@ class _NotificationsState extends State<Notifications> {
                               .headline1
                               .color
                               .withOpacity(0.36)),
-                    ),
+                    ).tr(),
                     SizedBox(height: 10),
                     Container(
                       height: 60,
@@ -111,7 +112,7 @@ class _NotificationsState extends State<Notifications> {
                                   .headline1
                                   .color
                                   .withOpacity(0.36)),
-                        )),
+                        ).tr()),
                   ],
                 ),
               )
@@ -185,10 +186,10 @@ class _NotificationsState extends State<Notifications> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(title, style: TextStyle(fontSize: 16)),
+              Text(title, style: TextStyle(fontSize: 16)).tr(),
               SizedBox(height: 5),
               Text(description,
-                  style: TextStyle(color: Colors.black26, fontSize: 13)),
+                  style: TextStyle(color: Colors.black26, fontSize: 13)).tr(),
               if (divider)
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20),

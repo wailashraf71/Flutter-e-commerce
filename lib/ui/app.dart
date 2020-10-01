@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/ui/components/widgets/app_drawer.dart';
 import 'package:flutter_ecommerce/ui/screens/home.dart';
@@ -5,7 +6,6 @@ import 'package:flutter_ecommerce/ui/screens/sub/cart.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
-
 class App extends StatefulWidget {
   @override
   _App createState() => new _App();
@@ -31,10 +31,11 @@ class _App extends State<App> {
           onTap: () => scrollUp(_scrollController),
           appBar: AppBar(
             title: Text('Wolf Express',
-                style: TextStyle(
-                    color: Theme.of(context).accentColor,
-                    fontFamily: GoogleFonts.montserrat().fontFamily,
-                    fontWeight: FontWeight.w700)),
+                    style: TextStyle(
+                        color: Theme.of(context).accentColor,
+                        fontFamily: GoogleFonts.montserrat().fontFamily,
+                        fontWeight: FontWeight.w700))
+                .tr(),
             centerTitle: true,
             brightness: Brightness.light,
             elevation: 10,

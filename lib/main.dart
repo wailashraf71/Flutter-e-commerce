@@ -11,8 +11,8 @@ void main() {
   runApp(EasyLocalization(
     child: MyApp(),
     supportedLocales: [
-      Locale('en', 'US'),
-      // Locale('ar', 'IQ')
+      // Locale('en', 'US'),
+      Locale('ar', 'IQ')
     ],
     path: 'assets/languages',
   ));

@@ -1,6 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 class WidgetHeader extends StatelessWidget {
   final String title;
   final String nextText;
@@ -25,7 +25,7 @@ class WidgetHeader extends StatelessWidget {
                       title,
                       style:
                           TextStyle(fontWeight: FontWeight.w800, fontSize: 20),
-                    ),
+                    ).tr(),
                     if (nextText != null)
                       Container(
                           child: CupertinoButton(
@@ -37,7 +37,7 @@ class WidgetHeader extends StatelessWidget {
                                   style: TextStyle(
                                       color: Theme.of(context).accentColor,
                                       fontWeight: FontWeight.w600),
-                                ),
+                                ).tr(),
                                 Icon(
                                   Icons.chevron_right,
                                   size: 20,

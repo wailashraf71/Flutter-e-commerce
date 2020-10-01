@@ -29,7 +29,8 @@ class _LoginState extends State<Login> {
       child: Scaffold(
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
-            title: Text('Login', style: TextStyle(fontWeight: FontWeight.w700)),
+            title: Text('Login', style: TextStyle(fontWeight: FontWeight.w700))
+                .tr(),
             centerTitle: true,
             elevation: 10,
             shadowColor: Colors.black12,
@@ -50,7 +51,7 @@ class _LoginState extends State<Login> {
                         'Email Address',
                         style: TextStyle(
                             fontWeight: FontWeight.w700, fontSize: 17),
-                      ),
+                      ).tr(),
                     ),
                     SizedBox(height: 15),
                     Container(
@@ -86,7 +87,7 @@ class _LoginState extends State<Login> {
                         'Password',
                         style: TextStyle(
                             fontWeight: FontWeight.w700, fontSize: 17),
-                      ),
+                      ).tr(),
                     ),
                     SizedBox(height: 15),
                     Container(
@@ -138,10 +139,11 @@ class _LoginState extends State<Login> {
                               padding: EdgeInsets.all(18),
                               onPressed: () => Get.to(UserAccount()),
                               child: Text("Login",
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w800))),
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w800))
+                                  .tr()),
                         )),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 15),

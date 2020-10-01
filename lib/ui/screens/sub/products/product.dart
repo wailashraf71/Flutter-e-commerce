@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,7 +9,6 @@ import 'package:flutter_ecommerce/ui/screens/sub/shops/shop_view.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:shimmer/shimmer.dart';
-
 class Product extends StatefulWidget {
   final int id;
 
@@ -128,10 +128,11 @@ class ProductState extends State<Product> with TickerProviderStateMixin {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('More from this category',
-                style: TextStyle(
-                    fontSize: 16,
-                    color: Theme.of(context).textTheme.headline1.color,
-                    fontWeight: FontWeight.w700)),
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Theme.of(context).textTheme.headline1.color,
+                        fontWeight: FontWeight.w700))
+                .tr(),
           ],
         ),
       ),
@@ -204,7 +205,7 @@ class ProductState extends State<Product> with TickerProviderStateMixin {
                             style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,
-                                fontWeight: FontWeight.w800)),
+                                fontWeight: FontWeight.w800)).tr(),
                       ],
                     )),
               ))

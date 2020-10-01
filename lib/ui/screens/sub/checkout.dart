@@ -36,7 +36,7 @@ class _CheckoutState extends State<Checkout> {
                   child: Text(
                     'Full Name *',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                  ),
+                  ).tr(),
                 ),
                 SizedBox(height: 10),
                 Container(
@@ -70,7 +70,7 @@ class _CheckoutState extends State<Checkout> {
                   child: Text(
                     'City *',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                  ),
+                  ).tr(),
                 ),
                 SizedBox(height: 10),
                 Container(
@@ -117,7 +117,7 @@ class _CheckoutState extends State<Checkout> {
                   child: Text(
                     'Address *',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                  ),
+                  ).tr(),
                 ),
                 SizedBox(height: 10),
                 Row(
@@ -178,7 +178,7 @@ class _CheckoutState extends State<Checkout> {
                   child: Text(
                     'Phone Number *',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                  ),
+                  ).tr(),
                 ),
                 SizedBox(height: 10),
                 Container(
@@ -212,7 +212,7 @@ class _CheckoutState extends State<Checkout> {
                   child: Text(
                     'Delivery Type *',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                  ),
+                  ).tr(),
                 ),
                 SizedBox(height: 10),
                 Wrap(
@@ -261,7 +261,7 @@ class _CheckoutState extends State<Checkout> {
                         .headline1
                         .color
                         .withOpacity(0.8)),
-              ),
+              ).tr(),
               value: termsAccept,
               onChanged: (check) => onTermsAcceptChanged(check),
               controlAffinity: ListTileControlAffinity.leading,
@@ -282,7 +282,7 @@ class _CheckoutState extends State<Checkout> {
                             style: TextStyle(
                                 fontSize: 19,
                                 color: Colors.white,
-                                fontWeight: FontWeight.w800))),
+                                fontWeight: FontWeight.w800)).tr()),
                   )),
             ),
           )

@@ -38,9 +38,11 @@ class SearchBar extends StatelessWidget {
                       cursorColor: Theme.of(context).accentColor,
                       keyboardType: TextInputType.emailAddress,
                       autofocus: preview ? false : true,
+
                       decoration: new InputDecoration(
                         hintText: tr('search_hint'),
                         hintStyle: TextStyle(
+                          height: 2.5,
                             color: Theme.of(context)
                                 .textTheme
                                 .headline1

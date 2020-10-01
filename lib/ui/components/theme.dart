@@ -9,7 +9,7 @@ const Color textDark = Color(0xff080808);
 ThemeData mainThemeLight(BuildContext context) {
   return ThemeData(
     brightness: Brightness.light,
-    fontFamily: GoogleFonts.lato().fontFamily,
+    fontFamily: GoogleFonts.tajawal().fontFamily,
     accentColor: accentColor,
     primaryColor: primaryColor,
     primaryIconTheme: IconThemeData(color: textDark),
@@ -24,7 +24,7 @@ ThemeData mainThemeLight(BuildContext context) {
     cupertinoOverrideTheme: CupertinoThemeData(
       textTheme: CupertinoTextThemeData(
           textStyle: TextStyle(
-              fontFamily: GoogleFonts.mada().fontFamily, color: Colors.black)),
+              fontFamily: GoogleFonts.tajawal().fontFamily, color: Colors.black)),
     ),
   );
 }

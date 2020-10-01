@@ -34,7 +34,7 @@ class _RegisterState extends State<Register> {
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
             title:
-                Text('Register', style: TextStyle(fontWeight: FontWeight.w700)),
+                Text('Register', style: TextStyle(fontWeight: FontWeight.w700)).tr(),
             centerTitle: true,
             elevation: 10,
             shadowColor: Colors.black12,
@@ -56,7 +56,7 @@ class _RegisterState extends State<Register> {
                         'Full Name',
                         style: TextStyle(
                             fontWeight: FontWeight.w700, fontSize: 18),
-                      ),
+                      ).tr(),
                     ),
                     SizedBox(height: 10),
                     Container(
@@ -92,7 +92,7 @@ class _RegisterState extends State<Register> {
                         'Email Address',
                         style: TextStyle(
                             fontWeight: FontWeight.w700, fontSize: 18),
-                      ),
+                      ).tr(),
                     ),
                     SizedBox(height: 10),
                     Container(
@@ -128,7 +128,7 @@ class _RegisterState extends State<Register> {
                         'Password',
                         style: TextStyle(
                             fontWeight: FontWeight.w700, fontSize: 18),
-                      ),
+                      ).tr(),
                     ),
                     SizedBox(height: 10),
                     Container(
@@ -182,7 +182,7 @@ class _RegisterState extends State<Register> {
                                   style: TextStyle(
                                       fontSize: 18,
                                       color: Colors.white,
-                                      fontWeight: FontWeight.w800))),
+                                      fontWeight: FontWeight.w800)).tr()),
                         )),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 15),

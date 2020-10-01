@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 class UserAccount extends StatefulWidget {
   @override
   _UserAccountState createState() => _UserAccountState();
@@ -26,8 +26,8 @@ class _UserAccountState extends State<UserAccount> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:
-            Text('My Profile', style: TextStyle(fontWeight: FontWeight.w700)),
+        title: Text('My Profile', style: TextStyle(fontWeight: FontWeight.w700))
+            .tr(),
         centerTitle: true,
         elevation: 10,
         shadowColor: Colors.black12,
@@ -75,7 +75,7 @@ class _UserAccountState extends State<UserAccount> {
                             fontWeight: FontWeight.w700,
                             fontSize: 17,
                             color: Theme.of(context).accentColor),
-                      ),
+                      ).tr(),
                     ),
                   ],
                 ),
@@ -86,7 +86,7 @@ class _UserAccountState extends State<UserAccount> {
                 child: Text(
                   'Full Name',
                   style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
-                ),
+                ).tr(),
               ),
               SizedBox(height: 10),
               Container(
@@ -121,7 +121,7 @@ class _UserAccountState extends State<UserAccount> {
                 child: Text(
                   'Email Address',
                   style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
-                ),
+                ).tr(),
               ),
               SizedBox(height: 10),
               Container(
@@ -156,7 +156,7 @@ class _UserAccountState extends State<UserAccount> {
                 child: Text(
                   'Phone Number',
                   style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
-                ),
+                ).tr(),
               ),
               SizedBox(height: 10),
               Container(
@@ -191,7 +191,7 @@ class _UserAccountState extends State<UserAccount> {
                 child: Text(
                   'Age',
                   style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
-                ),
+                ).tr(),
               ),
               SizedBox(height: 10),
               Container(
@@ -256,7 +256,7 @@ class _UserAccountState extends State<UserAccount> {
                             style: TextStyle(
                                 fontSize: 19,
                                 color: Colors.white,
-                                fontWeight: FontWeight.w800))),
+                                fontWeight: FontWeight.w800)).tr()),
                   )),
             ),
           )

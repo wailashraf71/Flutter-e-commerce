@@ -18,7 +18,7 @@ class _DeliveryRequestState extends State<DeliveryRequest> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Delivery request',
-            style: TextStyle(fontWeight: FontWeight.w700)),
+            style: TextStyle(fontWeight: FontWeight.w700)).tr(),
         centerTitle: true,
         elevation: 10,
         shadowColor: Colors.black12,
@@ -37,7 +37,7 @@ class _DeliveryRequestState extends State<DeliveryRequest> {
                   child: Text(
                     'Full Name *',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                  ),
+                  ).tr(),
                 ),
                 SizedBox(height: 10),
                 Container(
@@ -71,7 +71,7 @@ class _DeliveryRequestState extends State<DeliveryRequest> {
                   child: Text(
                     'Phone Number',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                  ),
+                  ).tr(),
                 ),
                 SizedBox(height: 10),
                 Container(
@@ -105,7 +105,7 @@ class _DeliveryRequestState extends State<DeliveryRequest> {
                   child: Text(
                     'Description *',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                  ),
+                  ).tr(),
                 ),
                 SizedBox(height: 10),
                 Container(
@@ -140,7 +140,7 @@ class _DeliveryRequestState extends State<DeliveryRequest> {
                   child: Text(
                     'Delivery Type *',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                  ),
+                  ).tr(),
                 ),
                 SizedBox(height: 10),
                 Wrap(
@@ -162,7 +162,7 @@ class _DeliveryRequestState extends State<DeliveryRequest> {
                   child: Text(
                     'Photos',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                  ),
+                  ).tr(),
                 ),
                 SizedBox(height: 10),
                 CupertinoButton(
@@ -222,7 +222,7 @@ class _DeliveryRequestState extends State<DeliveryRequest> {
                             style: TextStyle(
                                 fontSize: 19,
                                 color: Colors.white,
-                                fontWeight: FontWeight.w800))),
+                                fontWeight: FontWeight.w800)).tr()),
                   )),
             ),
           )
