@@ -1,0 +1,17 @@
+{
+  "Email": "البريد الالكتروني",
+  "Full name": "الاسم الكامل",
+  "hintEmail": "البريد الالكتروني",
+  "hintName": "الاسم الكامل",
+  "Password": "رمز المرور",
+  "hintPassword": "رمز المرور",
+  "Forgot Password?": "هل نسيت رمز المرور؟",
+  "Don't have an account?": "لا تملك حساب؟ ",
+  "Sign Up": "انشاء حساب",
+  "Create a free account": "انشاء حساب مجاني",
+  "Register": "انشاء حساب",
+  "Do you have an account?": "هل تملك حساب؟",
+  "Login": "تسجيل الدخول",
+  "Sign In": "تسجيل الدخول",
+  "Logout": "تسجيل الخروج"
+}
