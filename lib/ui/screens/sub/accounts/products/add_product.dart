@@ -1,30 +1,29 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/ui/components/dummy_data.dart';
-import 'package:flutter_ecommerce/ui/components/widgets/delivery_type.dart';
 import 'package:line_icons/line_icons.dart';
 
-class Checkout extends StatefulWidget {
+class AddProduct extends StatefulWidget {
   @override
-  _CheckoutState createState() => _CheckoutState();
+  _AddProductState createState() => _AddProductState();
 }
 
-class _CheckoutState extends State<Checkout> {
-  bool termsAccept = false;
+class _AddProductState extends State<AddProduct> {
   String selectedDelivery;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Checkout', style: TextStyle(fontWeight: FontWeight.w700))
-            .tr(),
+        title:
+            Text('Add Product', style: TextStyle(fontWeight: FontWeight.w700))
+                .tr(),
         centerTitle: true,
         elevation: 10,
         shadowColor: Colors.black12,
         iconTheme: new IconThemeData(color: Colors.black),
       ),
+      bottomNavigationBar: buildBottomBar(context),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
@@ -32,10 +31,11 @@ class _CheckoutState extends State<Checkout> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
+                //Name
                 Padding(
                   padding: const EdgeInsets.all(1.0),
                   child: Text(
-                    'Full Name *',
+                    'Product name',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                   ).tr(),
                 ),
@@ -58,105 +58,89 @@ class _CheckoutState extends State<Checkout> {
                       FocusScope.of(context).nextFocus();
                     },
                     decoration: InputDecoration(
-                        hintText: tr('Your name'),
                         border: InputBorder.none,
                         alignLabelWithHint: true,
                         contentPadding:
                             EdgeInsets.symmetric(horizontal: 20, vertical: 12)),
                   ),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 20),
+                //Images
                 Padding(
                   padding: const EdgeInsets.all(1.0),
                   child: Text(
-                    'City *',
+                    'Photos',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                   ).tr(),
                 ),
                 SizedBox(height: 10),
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.blueGrey.withOpacity(0.2),
-                            blurRadius: 10,
-                            spreadRadius: -7)
-                      ],
-                      borderRadius: BorderRadius.circular(10)),
-                  child: DropdownButton<String>(
-                    items: deliverySectors.map((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(
-                          '$value',
-                          style: TextStyle(
-                              fontSize: 14,
-                              color:
-                                  Theme.of(context).textTheme.headline1.color),
-                        ),
-                      );
-                    }).toList(),
-                    onChanged: (_) {},
-                    value: 'Mosul',
-                    isExpanded: true,
-                    underline: Container(),
-                    elevation: 0,
-                    style: TextStyle(
-                        fontFamily:
-                            Theme.of(context).textTheme.headline1.fontFamily,
-                        fontSize: 20),
-                    dropdownColor: Theme.of(context).primaryColor,
-                    icon: Icon(Icons.keyboard_arrow_down),
+                CupertinoButton(
+                  onPressed: () {},
+                  padding: EdgeInsets.zero,
+                  child: Container(
+                    padding: EdgeInsets.all(5),
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.blueGrey.withOpacity(0.2),
+                              blurRadius: 10,
+                              spreadRadius: -7)
+                        ],
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Center(
+                      child: Icon(LineIcons.plus_circle,
+                          color: Theme.of(context).accentColor),
+                    ),
                   ),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 20),
+                //Sizes
                 Padding(
                   padding: const EdgeInsets.all(1.0),
                   child: Text(
-                    'Address *',
+                    'Sizes',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                   ).tr(),
                 ),
                 SizedBox(height: 10),
                 Row(
                   children: [
-                    Expanded(
-                      child: Container(
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.blueGrey.withOpacity(0.2),
-                                  blurRadius: 10,
-                                  spreadRadius: -7)
-                            ],
-                            borderRadius: BorderRadius.circular(10)),
-                        child: TextFormField(
-                          keyboardType: TextInputType.text,
-                          textInputAction: TextInputAction.next,
-                          onFieldSubmitted: (v) {
-                            FocusScope.of(context).nextFocus();
-                          },
-                          decoration: InputDecoration(
-                              hintText: tr('Street name ...'),
-                              border: InputBorder.none,
-                              alignLabelWithHint: true,
-                              contentPadding: EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 12)),
-                        ),
+                    Container(
+                      width: 100,
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.blueGrey.withOpacity(0.2),
+                                blurRadius: 10,
+                                spreadRadius: -7)
+                          ],
+                          borderRadius: BorderRadius.circular(10)),
+                      child: TextFormField(
+                        keyboardType: TextInputType.text,
+                        textInputAction: TextInputAction.next,
+                        onFieldSubmitted: (v) {
+                          FocusScope.of(context).nextFocus();
+                        },
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            alignLabelWithHint: true,
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 12)),
                       ),
                     ),
                     SizedBox(width: 10),
                     CupertinoButton(
-                      onPressed: () {},
                       padding: EdgeInsets.zero,
+                      onPressed: () {},
                       child: Container(
-                        padding: EdgeInsets.all(5),
                         width: 60,
                         height: 60,
+                        padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
                             color: Colors.white,
                             boxShadow: [
@@ -166,22 +150,89 @@ class _CheckoutState extends State<Checkout> {
                                   spreadRadius: -7)
                             ],
                             borderRadius: BorderRadius.circular(10)),
-                        child: Icon(LineIcons.location_arrow,
-                            color: Theme.of(context).accentColor),
+                        child: Center(
+                          child: Icon(LineIcons.plus_circle,
+                              color: Theme.of(context).accentColor),
+                        ),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 20),
+                //Colors
                 Padding(
                   padding: const EdgeInsets.all(1.0),
                   child: Text(
-                    'Phone Number *',
+                    'Colors',
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                  ).tr(),
+                ),
+                SizedBox(height: 10),
+                Row(
+                  children: [
+                    Container(
+                      width: 140,
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.blueGrey.withOpacity(0.2),
+                                blurRadius: 10,
+                                spreadRadius: -7)
+                          ],
+                          borderRadius: BorderRadius.circular(10)),
+                      child: TextFormField(
+                        keyboardType: TextInputType.text,
+                        textInputAction: TextInputAction.next,
+                        onFieldSubmitted: (v) {
+                          FocusScope.of(context).nextFocus();
+                        },
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            alignLabelWithHint: true,
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 12)),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    CupertinoButton(
+                      padding: EdgeInsets.zero,
+                      onPressed: () {},
+                      child: Container(
+                        width: 60,
+                        height: 60,
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.blueGrey.withOpacity(0.2),
+                                  blurRadius: 10,
+                                  spreadRadius: -7)
+                            ],
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Center(
+                          child: Icon(LineIcons.plus_circle,
+                              color: Theme.of(context).accentColor),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20),
+
+                //Quantity
+                Padding(
+                  padding: const EdgeInsets.all(1.0),
+                  child: Text(
+                    'Quantity',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                   ).tr(),
                 ),
                 SizedBox(height: 10),
                 Container(
+                  width: 150,
                   padding: EdgeInsets.all(5),
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -199,48 +250,25 @@ class _CheckoutState extends State<Checkout> {
                       FocusScope.of(context).nextFocus();
                     },
                     decoration: InputDecoration(
-                        hintText: '+964 770 123 4567',
                         border: InputBorder.none,
                         alignLabelWithHint: true,
                         contentPadding:
                             EdgeInsets.symmetric(horizontal: 20, vertical: 12)),
                   ),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 20),
+                //Price
                 Padding(
                   padding: const EdgeInsets.all(1.0),
                   child: Text(
-                    'Delivery Type *',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                  ).tr(),
-                ),
-                SizedBox(height: 10),
-                Wrap(
-                  spacing: 15,
-                  runSpacing: 15,
-                  children: delivery
-                      .map((item) =>
-                      DeliveryType(
-                          value: item,
-                          valueHolder: selectedDelivery,
-                          onPressed: () =>
-                              setState(() {
-                                selectedDelivery = item;
-                              })))
-                      .toList()
-                      .cast<Widget>(),
-                ),
-                SizedBox(height: 30),
-                Padding(
-                  padding: const EdgeInsets.all(1.0),
-                  child: Text(
-                    'Delivery Sectors',
+                    'Price',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                   ).tr(),
                 ),
                 SizedBox(height: 10),
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
+                  width: 200,
+                  padding: EdgeInsets.all(5),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       boxShadow: [
@@ -250,47 +278,23 @@ class _CheckoutState extends State<Checkout> {
                             spreadRadius: -7)
                       ],
                       borderRadius: BorderRadius.circular(10)),
-                  child: DropdownButton<String>(
-                    items: deliverySectors
-                        .map((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(
-                          '$value',
-                          style: TextStyle(
-                              fontSize: 14,
-                              color:
-                              Theme
-                                  .of(context)
-                                  .textTheme
-                                  .headline1
-                                  .color),
-                        ),
-                      );
-                    }).toList(),
-                    onChanged: (_) {},
-                    value: 'Mosul',
-                    isExpanded: true,
-                    underline: Container(),
-                    elevation: 0,
-                    style: TextStyle(
-                        fontFamily:
-                        Theme
-                            .of(context)
-                            .textTheme
-                            .headline1
-                            .fontFamily,
-                        fontSize: 20),
-                    dropdownColor: Theme
-                        .of(context)
-                        .primaryColor,
-                    icon: Icon(Icons.keyboard_arrow_down),
+                  child: TextFormField(
+                    keyboardType: TextInputType.text,
+                    textInputAction: TextInputAction.next,
+                    onFieldSubmitted: (v) {
+                      FocusScope.of(context).nextFocus();
+                    },
+                    decoration: InputDecoration(
+                        border: InputBorder.none,
+                        alignLabelWithHint: true,
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 12)),
                   ),
                 ),
+                SizedBox(height: 20),
               ]),
         ),
       ),
-      bottomNavigationBar: buildBottomBar(context),
     );
   }
 
@@ -307,25 +311,6 @@ class _CheckoutState extends State<Checkout> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 15),
-            child: CheckboxListTile(
-              contentPadding: EdgeInsets.zero,
-              title: Text(
-                "I agree to the Terms and Conditions",
-                style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    color: Theme.of(context)
-                        .textTheme
-                        .headline1
-                        .color
-                        .withOpacity(0.8)),
-              ).tr(),
-              value: termsAccept,
-              onChanged: (check) => onTermsAcceptChanged(check),
-              controlAffinity: ListTileControlAffinity.leading,
-            ),
-          ),
           Padding(
             padding: const EdgeInsets.all(15),
             child: Center(
@@ -334,16 +319,14 @@ class _CheckoutState extends State<Checkout> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: CupertinoButton(
-                        color: Theme
-                            .of(context)
-                            .accentColor,
+                        color: Theme.of(context).accentColor,
                         padding: EdgeInsets.all(15),
-                        onPressed: () => () {},
-                        child: Text("Place Order!",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w800))
+                        onPressed: () {},
+                        child: Text("Send request",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800))
                             .tr()),
                   )),
             ),
@@ -351,11 +334,5 @@ class _CheckoutState extends State<Checkout> {
         ],
       ),
     );
-  }
-
-  onTermsAcceptChanged(bool check) {
-    setState(() {
-      termsAccept = check;
-    });
   }
 }

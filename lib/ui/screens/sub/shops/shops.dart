@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/ui/components/dummy_data.dart';
 import 'package:flutter_ecommerce/ui/components/widgets/shops_list.dart';
 import 'package:flutter_ecommerce/ui/components/widgets/widget_header.dart';
+
 class Shops extends StatefulWidget {
   final int navId;
 

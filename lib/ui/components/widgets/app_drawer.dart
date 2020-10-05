@@ -1,7 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/ui/screens/auth/login.dart';
+import 'package:flutter_ecommerce/ui/screens/sub/accounts/orders/orders.dart';
+import 'package:flutter_ecommerce/ui/screens/sub/accounts/products/add_product.dart';
+import 'package:flutter_ecommerce/ui/screens/sub/accounts/shop_account.dart';
+import 'package:flutter_ecommerce/ui/screens/sub/accounts/user_account.dart';
 import 'package:flutter_ecommerce/ui/screens/sub/delivery_request.dart';
+import 'package:flutter_ecommerce/ui/screens/sub/international_stores.dart';
 import 'package:flutter_ecommerce/ui/screens/sub/notifications.dart';
 import 'package:flutter_ecommerce/ui/screens/sub/shops/shops.dart';
 import 'package:get/get.dart';
@@ -9,6 +14,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,19 +22,22 @@ class AppDrawer extends StatelessWidget {
       data: Theme.of(context).copyWith(canvasColor: Colors.white),
       child: Drawer(
           child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              DrawerHeader(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          DrawerHeader(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
                 Container(
                     padding: EdgeInsets.only(bottom: 15, top: 10),
                     child: Text(
                       'Wolf Express',
                       style: TextStyle(
-                          fontFamily: GoogleFonts.montserrat().fontFamily,
                           fontSize: 30,
+
+                          ///Todo: only if arabic use Tajawal font
+                          fontFamily: GoogleFonts.tajawal().fontFamily,
+                          height: 1.8,
                           color: Theme.of(context).accentColor,
                           fontWeight: FontWeight.bold),
                     ).tr()),
@@ -36,15 +45,57 @@ class AppDrawer extends StatelessWidget {
                   '0.0.1',
                   style: TextStyle(
                       fontSize: 12,
-                      color: Theme.of(context)
+                      color: Theme
+                          .of(context)
                           .textTheme
                           .headline1
                           .color
                           .withOpacity(0.4)),
                 ),
-              ],
+                  ],
                 ),
               ),
+              ListTile(
+                leading: Icon(
+                  LineIcons.user,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  'My Profile',
+                ).tr(),
+                onTap: () => Get.to(UserAccount()),
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.storefront,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  'My Shop',
+                ).tr(),
+                onTap: () => Get.to(ShopAccount()),
+              ),
+              ListTile(
+                leading: Icon(
+                  LineIcons.plus_circle,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  'Add Product',
+                ).tr(),
+                onTap: () => Get.to(AddProduct()),
+              ),
+              ListTile(
+                leading: Icon(
+                  LineIcons.check_circle,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  'Orders',
+                ).tr(),
+                onTap: () => Get.to(Orders()),
+              ),
+              Divider(),
               ListTile(
                 leading: Icon(
                   LineIcons.list_ul,
@@ -64,6 +115,16 @@ class AppDrawer extends StatelessWidget {
                   'Delivery request',
                 ).tr(),
                 onTap: () => Get.to(DeliveryRequest()),
+              ),
+              ListTile(
+                leading: Icon(
+                  LineIcons.link,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  'International Stores',
+                ).tr(),
+                onTap: () => Get.to(InternationalStores()),
               ),
               ListTile(
                 leading: Icon(

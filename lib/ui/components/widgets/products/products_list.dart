@@ -4,7 +4,7 @@ import 'package:flutter_ecommerce/ui/components/widgets/products/product_widget.
 class ProductsList extends StatelessWidget {
   final List products;
 
-  const ProductsList({Key key, @required this.products}) : super(key: key);
+  const ProductsList({Key key, this.products}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

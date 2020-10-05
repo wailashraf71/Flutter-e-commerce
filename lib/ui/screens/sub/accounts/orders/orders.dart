@@ -1,21 +1,24 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/ui/components/dummy_data.dart';
+import 'package:flutter_ecommerce/ui/screens/sub/accounts/orders/single_order.dart';
+import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 
-class Notifications extends StatefulWidget {
+class Orders extends StatefulWidget {
   @override
-  _NotificationsState createState() => _NotificationsState();
+  _OrdersState createState() => _OrdersState();
 }
 
-class _NotificationsState extends State<Notifications> {
+class _OrdersState extends State<Orders> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title:
-            Text('Notifications', style: TextStyle(fontWeight: FontWeight.w700))
+            Text('Orders', style: TextStyle(fontWeight: FontWeight.w700))
                 .tr(),
         centerTitle: true,
         elevation: 10,
@@ -28,37 +31,7 @@ class _NotificationsState extends State<Notifications> {
           child: Column(
             children: [
               buildStatsCard(
-                onTap: () => showModalBottomSheet(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Container(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              option(
-                                  title: 'Order confirmed',
-                                  description: 'Your order has been received',
-                                  isChecked: true),
-                              option(
-                                  title: 'Preparing order',
-                                  description: 'Your order has been Prepared',
-                                  isChecked: true),
-                              option(
-                                  title: 'Delivery in progress',
-                                  description: 'Your order is being delivered',
-                                  isChecked: true),
-                              option(
-                                  title: 'Order Delivered',
-                                  description: 'Your order has been shipped',
-                                  isChecked: false,
-                                  divider: false),
-                            ],
-                          ),
-                        ),
-                      );
-                    }),
+                onTap: () => Get.to(SingleOrder(id: 423621)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -156,58 +129,52 @@ class _NotificationsState extends State<Notifications> {
       bool divider = true}) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)).tr(),
+            SizedBox(height: 5),
+            Text(description,
+                    style: TextStyle(color: Colors.black26, fontSize: 13))
+                .tr(),
+            if (divider)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Container(
+                  height: 1,
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  decoration: BoxDecoration(
+                      border: Border(
+                          bottom:
+                              BorderSide(color: Colors.black12, width: 0.4))),
+                ),
+              )
+          ],
+        ),
         Container(
           decoration: BoxDecoration(
               color: isChecked
                   ? Theme.of(context).accentColor.withOpacity(0.1)
                   : Theme.of(context)
-                      .textTheme
-                      .headline1
-                      .color
-                      .withOpacity(0.05),
+                  .textTheme
+                  .headline1
+                  .color
+                  .withOpacity(0.05),
               borderRadius: BorderRadius.circular(8)),
           child: Padding(
             padding: const EdgeInsets.all(5.0),
             child: isChecked
                 ? Icon(LineIcons.check_circle,
-                    color: Theme.of(context).accentColor)
+                color: Theme.of(context).accentColor)
                 : Icon(LineIcons.clock_o,
-                    color: Theme.of(context)
-                        .textTheme
-                        .headline1
-                        .color
-                        .withOpacity(0.5)),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(title,
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold))
-                  .tr(),
-              SizedBox(height: 5),
-              Text(description,
-                      style: TextStyle(color: Colors.black26, fontSize: 13))
-                  .tr(),
-              if (divider)
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: Container(
-                    height: 1,
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    decoration: BoxDecoration(
-                        border: Border(
-                            bottom:
-                                BorderSide(color: Colors.black12, width: 0.4))),
-                  ),
-                )
-            ],
+                color: Theme.of(context)
+                    .textTheme
+                    .headline1
+                    .color
+                    .withOpacity(0.5)),
           ),
         ),
       ],

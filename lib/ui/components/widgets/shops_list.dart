@@ -22,7 +22,10 @@ class ShopsList extends StatelessWidget {
           itemCount: shops.length,
           itemBuilder: (BuildContext context, int index) {
             return CupertinoButton(
-              onPressed: () => Get.to(ShopView(id: index, shops: shops,)),
+              onPressed: () => Get.to(ShopView(
+                id: index,
+                shops: shops,
+              )),
               padding: EdgeInsets.zero,
               child: Column(
                 children: [

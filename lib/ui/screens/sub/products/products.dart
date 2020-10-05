@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/ui/components/widgets/products/products_grid.dart';
 import 'package:line_icons/line_icons.dart';
+
 class Products extends StatefulWidget {
   final String title;
 
@@ -33,10 +34,11 @@ class _ProductsState extends State<Products> {
     );
   }
 
-  Widget buildStatsCard({Color color,
-    Widget child,
-    EdgeInsets padding,
-    GestureTapCallback onTap}) {
+  Widget buildStatsCard(
+      {Color color,
+      Widget child,
+      EdgeInsets padding,
+      GestureTapCallback onTap}) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -104,7 +106,8 @@ class _ProductsState extends State<Products> {
               Text(title, style: TextStyle(fontSize: 16)).tr(),
               SizedBox(height: 5),
               Text(description,
-                  style: TextStyle(color: Colors.black26, fontSize: 13)).tr(),
+                  style: TextStyle(color: Colors.black26, fontSize: 13))
+                  .tr(),
               if (divider)
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20),

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 class UserAccount extends StatefulWidget {
   @override
   _UserAccountState createState() => _UserAccountState();
@@ -253,10 +254,11 @@ class _UserAccountState extends State<UserAccount> {
                         padding: EdgeInsets.all(15),
                         onPressed: () => () {},
                         child: Text("Save",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w800)).tr()),
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800))
+                            .tr()),
                   )),
             ),
           )

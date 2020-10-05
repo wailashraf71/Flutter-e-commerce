@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const Color accentColor = Color(0xff00AEEF);
+const Color accentColor2 = Color(0xff00AEEF);
+const Color accentColor = Color(0xff0246FF);
 const Color primaryColor = Color(0xffffffff);
 const Color textDark = Color(0xff080808);
 
@@ -24,7 +25,10 @@ ThemeData mainThemeLight(BuildContext context) {
     cupertinoOverrideTheme: CupertinoThemeData(
       textTheme: CupertinoTextThemeData(
           textStyle: TextStyle(
-              fontFamily: GoogleFonts.tajawal().fontFamily, color: Colors.black)),
+              fontFamily: GoogleFonts
+                  .tajawal()
+                  .fontFamily,
+              color: Colors.black)),
     ),
   );
 }

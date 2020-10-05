@@ -5,6 +5,7 @@ import 'package:flutter_ecommerce/ui/components/dummy_data.dart';
 import 'package:flutter_ecommerce/ui/components/widgets/order_widget.dart';
 import 'package:flutter_ecommerce/ui/screens/sub/checkout.dart';
 import 'package:get/get.dart';
+
 class Cart extends StatefulWidget {
   @override
   _CartState createState() => _CartState();
@@ -27,21 +28,21 @@ class _CartState extends State<Cart> {
           children: <Widget>[
             Expanded(
                 child: ListView.separated(
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                        padding: EdgeInsets.symmetric(vertical: 10),
-                        child: OrderWidget(
-                            title: products[index]['title'],
-                            image: products[index]['image']));
-                  },
-                  separatorBuilder: (BuildContext context, int index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 35),
-                      child: Divider(),
-                    );
-                  },
-                )),
+              itemCount: 3,
+              itemBuilder: (context, index) {
+                return Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    child: OrderWidget(
+                        title: products[index]['title'],
+                        image: products[index]['image']));
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 35),
+                  child: Divider(),
+                );
+              },
+            )),
           ]),
       bottomNavigationBar: buildBottomBar(context),
     );
@@ -66,8 +67,9 @@ class _CartState extends State<Cart> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text('Total Price',
-                    style:
-                    TextStyle(fontWeight: FontWeight.bold, fontSize: 17)).tr(),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 17))
+                    .tr(),
                 Text("\$76",
                     style:
                     TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
@@ -82,7 +84,9 @@ class _CartState extends State<Cart> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: CupertinoButton(
-                        color: Theme.of(context).accentColor,
+                        color: Theme
+                            .of(context)
+                            .accentColor,
                         padding: EdgeInsets.all(15),
                         // onPressed: () => checkoutDialog(context),
                         onPressed: () => Get.to(Checkout()),
@@ -90,7 +94,8 @@ class _CartState extends State<Cart> {
                             style: TextStyle(
                                 fontSize: 19,
                                 color: Colors.white,
-                                fontWeight: FontWeight.w800)).tr()),
+                                fontWeight: FontWeight.w800))
+                            .tr()),
                   )),
             ),
           )

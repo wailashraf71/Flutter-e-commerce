@@ -9,6 +9,7 @@ import 'package:flutter_ecommerce/ui/screens/sub/shops/shop_view.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:shimmer/shimmer.dart';
+
 class Product extends StatefulWidget {
   final int id;
 
@@ -202,10 +203,11 @@ class ProductState extends State<Product> with TickerProviderStateMixin {
                         Icon(LineIcons.cart_plus),
                         SizedBox(width: 7),
                         Text("Add to cart",
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w800)).tr(),
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800))
+                            .tr(),
                       ],
                     )),
               ))

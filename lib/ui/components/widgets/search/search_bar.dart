@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -38,11 +36,10 @@ class SearchBar extends StatelessWidget {
                       cursorColor: Theme.of(context).accentColor,
                       keyboardType: TextInputType.emailAddress,
                       autofocus: preview ? false : true,
-
                       decoration: new InputDecoration(
                         hintText: tr('search_hint'),
                         hintStyle: TextStyle(
-                          height: 2.5,
+                            height: 2.5,
                             color: Theme.of(context)
                                 .textTheme
                                 .headline1
@@ -59,18 +56,14 @@ class SearchBar extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Transform(
-                    alignment: Alignment.center,
-                    transform: Matrix4.rotationY(math.pi),
-                    child: Icon(
-                      LineIcons.search,
-                      color: Theme.of(context)
-                          .textTheme
-                          .headline1
-                          .color
-                          .withOpacity(0.38),
-                      size: 22,
-                    ),
+                  Icon(
+                    LineIcons.search,
+                    color: Theme.of(context)
+                        .textTheme
+                        .headline1
+                        .color
+                        .withOpacity(0.38),
+                    size: 22,
                   ),
                 ],
               ),

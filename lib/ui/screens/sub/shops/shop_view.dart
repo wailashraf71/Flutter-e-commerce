@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_ecommerce/ui/components/widgets/products/products_grid.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class ShopView extends StatefulWidget {
@@ -111,14 +113,58 @@ class _ShopViewState extends State<ShopView> {
               expandedHeight: 400,
             ),
             SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.all(15),
+                child: Column(
+                  children: <Widget>[
+                    SizedBox(height: 20),
+                    buildSocialTile(
+                        text: 'Wolf_Express20',
+                        icon: FontAwesomeIcons.facebookSquare),
+                    buildSocialTile(
+                        text: 'Wolf_e_mosul', icon: FontAwesomeIcons.instagram),
+                    buildSocialTile(
+                        text: 'Wolf_iq', icon: FontAwesomeIcons.whatsapp),
+                    buildSocialTile(
+                        text: '0770 123 4567',
+                        icon: FontAwesomeIcons.phoneSquareAlt),
+                  ],
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
               child: Column(
                 children: <Widget>[
-                  SizedBox(height: 60),
+                  SizedBox(height: 20),
                   ProductsGrid(),
                 ],
               ),
             )
           ],
         ));
+  }
+
+  CupertinoButton buildSocialTile({String text, IconData icon}) {
+    return CupertinoButton(
+      onPressed: () {},
+      padding: EdgeInsets.zero,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Icon(
+            icon,
+            color: Colors.black54,
+            size: 27,
+          ),
+          SizedBox(width: 15),
+          Text(text,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: Colors.black87,
+                  height: 2.2)),
+        ],
+      ),
+    );
   }
 }

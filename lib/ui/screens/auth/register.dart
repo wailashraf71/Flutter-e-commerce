@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/ui/components/widgets/delivery_type.dart';
 import 'package:flutter_ecommerce/ui/screens/sub/accounts/shop_account.dart';
 import 'package:get/get.dart';
 
@@ -15,6 +16,7 @@ class _RegisterState extends State<Register> {
   TextEditingController _nameController;
   TextEditingController _emailController;
   TextEditingController _passwordController;
+  String selectedType = 'User';
 
   @override
   void initState() {
@@ -34,7 +36,8 @@ class _RegisterState extends State<Register> {
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
             title:
-                Text('Register', style: TextStyle(fontWeight: FontWeight.w700)).tr(),
+                Text('Register', style: TextStyle(fontWeight: FontWeight.w700))
+                    .tr(),
             centerTitle: true,
             elevation: 10,
             shadowColor: Colors.black12,
@@ -157,32 +160,48 @@ class _RegisterState extends State<Register> {
                                 horizontal: 20, vertical: 12)),
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: FlatButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Forgot Password?',
-                          style: TextStyle(
-                              color: Theme.of(context).accentColor,
-                              fontWeight: FontWeight.bold),
-                        ).tr(),
-                      ),
-                    ),
                     SizedBox(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.all(1.0),
+                      child: Text(
+                        'Account Type',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w700, fontSize: 18),
+                      ).tr(),
+                    ),
+                    SizedBox(height: 10),
+                    Wrap(
+                      spacing: 15,
+                      runSpacing: 15,
+                      children: ['User', 'Delivery guy', 'Shop owner']
+                          .map((item) =>
+                          DeliveryType(
+                              value: item,
+                              valueHolder: selectedType,
+                              onPressed: () =>
+                                  setState(() {
+                                    selectedType = item;
+                                  })))
+                          .toList()
+                          .cast<Widget>(),
+                    ),
+                    SizedBox(height: 30),
                     Container(
                         width: double.infinity,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: CupertinoButton(
-                              color: Theme.of(context).accentColor,
+                              color: Theme
+                                  .of(context)
+                                  .accentColor,
                               padding: EdgeInsets.all(18),
                               onPressed: () => Get.to(ShopAccount()),
                               child: Text("Register",
                                   style: TextStyle(
                                       fontSize: 18,
                                       color: Colors.white,
-                                      fontWeight: FontWeight.w800)).tr()),
+                                      fontWeight: FontWeight.w800))
+                                  .tr()),
                         )),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 15),

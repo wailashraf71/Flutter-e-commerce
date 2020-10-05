@@ -18,7 +18,8 @@ class _DeliveryRequestState extends State<DeliveryRequest> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Delivery request',
-            style: TextStyle(fontWeight: FontWeight.w700)).tr(),
+                style: TextStyle(fontWeight: FontWeight.w700))
+            .tr(),
         centerTitle: true,
         elevation: 10,
         shadowColor: Colors.black12,
@@ -215,14 +216,17 @@ class _DeliveryRequestState extends State<DeliveryRequest> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: CupertinoButton(
-                        color: Theme.of(context).accentColor,
+                        color: Theme
+                            .of(context)
+                            .accentColor,
                         padding: EdgeInsets.all(15),
                         onPressed: () {},
                         child: Text("Send request",
                             style: TextStyle(
                                 fontSize: 19,
                                 color: Colors.white,
-                                fontWeight: FontWeight.w800)).tr()),
+                                fontWeight: FontWeight.w800))
+                            .tr()),
                   )),
             ),
           )

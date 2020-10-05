@@ -34,8 +34,7 @@ class ProductWidget extends StatelessWidget {
             Expanded(
               flex: 1,
               child: ClipRRect(
-                  borderRadius: BorderRadius.all(
-                      Radius.circular(7)),
+                  borderRadius: BorderRadius.all(Radius.circular(7)),
                   child: Stack(
                     children: [
                       CachedNetworkImage(

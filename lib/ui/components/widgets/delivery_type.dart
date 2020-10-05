@@ -1,15 +1,14 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-
 class DeliveryType extends StatelessWidget {
   final dynamic value;
   final dynamic valueHolder;
   final VoidCallback onPressed;
   final double width;
 
-  const DeliveryType(
-      {Key key, this.value, this.onPressed, this.valueHolder, this.width})
+  const DeliveryType({Key key, this.value, this.onPressed, this.valueHolder, this.width})
       : super(key: key);
 
   @override
@@ -33,17 +32,18 @@ class DeliveryType extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 4),
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+                const EdgeInsets.symmetric(vertical: 12, horizontal: 10),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text('$value',
-                        style: TextStyle(
-                            fontSize: 15,
-                            color: valueHolder == value
-                                ? Theme.of(context).accentColor
-                                : Colors.black.withOpacity(0.4))),
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: valueHolder == value
+                                    ? Theme.of(context).accentColor
+                                    : Colors.black.withOpacity(0.4)))
+                        .tr(),
                     SizedBox(width: 5),
                     valueHolder == value
                         ? Icon(LineIcons.dot_circle_o,

@@ -1,7 +1,7 @@
 List<String> slides = [
-  'https://ecommercenews.eu/wp-content/uploads/2017/04/next_day_delivery.png',
-  'https://images.indianexpress.com/2017/10/apple_iphone8_paytm-mall-copy.jpg',
   'https://techsathi.com/wp-content/uploads/2020/03/Thumbnail-Samsung-Exchange-Offer.jpg',
+  'https://images.indianexpress.com/2017/10/apple_iphone8_paytm-mall-copy.jpg',
+  'https://ecommercenews.eu/wp-content/uploads/2017/04/next_day_delivery.png'
 ];
 List<Map<String, dynamic>> shops = [
   {
@@ -15,7 +15,7 @@ List<Map<String, dynamic>> shops = [
     "id": 2,
     "title": "FLO Shoes",
     "logo":
-        "https://www.bestermedia.com/wp-content/uploads/2016/10/flo-logo.jpg",
+        "https://www.speakeragency.com.tr/en/wp-content/uploads/2017/08/FLO-MA%C2%B6AZACILIK.png",
     "image":
         'https://www.ledeca.com/folder/39/editor/image/flo_led_screen_1.png'
   },
@@ -58,9 +58,45 @@ List<Map<String, dynamic>> shops2 = [
     "id": 4,
     "title": "Pizza hut",
     "logo":
-        "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/112014/pizza_hut_new_logo_2014.png?itok=KyOtuVp",
+    "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/112014/pizza_hut_new_logo_2014.png?itok=KyOtuVp",
     "image":
-        'https://i2-prod.liverpoolecho.co.uk/incoming/article14302713.ece/ALTERNATES/s1200b/3_JS136684710.jpg'
+    'https://i2-prod.liverpoolecho.co.uk/incoming/article14302713.ece/ALTERNATES/s1200b/3_JS136684710.jpg'
+  }
+];
+
+List<Map<String, dynamic>> internationalStores = [
+  {
+    "id": 1,
+    "title": "Amazon",
+    "logo":
+    "https://i.pinimg.com/originals/fe/da/d8/fedad83f2215483d6df01669661502f2.png",
+    "url": "https://www.amazon.com"
+  },
+  {
+    "id": 2,
+    "title": "Wish",
+    "logo": "https://expandly.com/wp-content/uploads/2018/06/wish-logo.png",
+    "url": "https://www.wish.com"
+  },
+  {
+    "id": 3,
+    "title": "SHEIN",
+    "logo": "https://barakahdeals.com/wp-content/uploads/Shein-Logo.jpg",
+    "url": "https://www.shein.com"
+  },
+  {
+    "id": 4,
+    "title": "Alibaba",
+    "logo":
+    "https://cdn.theorg.com/42cc9e71-6484-461c-9f1e-238ab751a67d_medium.png",
+    "url": "https://www.alibaba.com"
+  },
+  {
+    "id": 5,
+    "title": "Sephora",
+    "logo":
+    "https://uploads-ssl.webflow.com/5d58e3031e139811311ef0d6/5edee25ec49dc06b7af34960_sephora-logo%20new.jpg",
+    "url": "https://www.sephora.com"
   }
 ];
 
@@ -71,7 +107,7 @@ List<Map<String, dynamic>> products = [
     "price": 31,
     "shop": 'Etsy',
     "image":
-        "https://i.etsystatic.com/16802307/r/il/a3fb1c/2232773120/il_794xN.2232773120_hdx4.jpg",
+    "https://i.etsystatic.com/16802307/r/il/a3fb1c/2232773120/il_794xN.2232773120_hdx4.jpg",
   },
   {
     "id": 2,
@@ -95,7 +131,7 @@ List<Map<String, dynamic>> products = [
     "price": 12,
     "shop": 'Etsy',
     "image":
-        "https://i.etsystatic.com/14877486/r/il/53038b/2150558707/il_794xN.2150558707_kp9q.jpg",
+    "https://i.etsystatic.com/14877486/r/il/53038b/2150558707/il_794xN.2150558707_kp9q.jpg",
   }
 ];
 
@@ -103,3 +139,4 @@ List<String> sizes = ['39', '40', '41', '42'];
 List<String> colors = ['blue', 'white', 'pink', 'black'];
 
 List<String> delivery = ['Wolf Express', 'FedEx', 'DHL'];
+List<String> deliverySectors = ['Mosul', 'Erbil', 'Duhok', ' Baghdad', 'Basra'];
