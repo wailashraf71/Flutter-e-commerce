@@ -1,24 +1,20 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/ui/components/dummy_data.dart';
-import 'package:flutter_ecommerce/ui/components/widgets/delivery_type.dart';
-import 'package:line_icons/line_icons.dart';
 
-class DeliveryRequest extends StatefulWidget {
+class AddBranch extends StatefulWidget {
   @override
-  _DeliveryRequestState createState() => _DeliveryRequestState();
+  _AddBranchState createState() => _AddBranchState();
 }
 
-class _DeliveryRequestState extends State<DeliveryRequest> {
+class _AddBranchState extends State<AddBranch> {
   String selectedDelivery;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Delivery request',
-                style: TextStyle(fontWeight: FontWeight.w700))
+        title: Text('Add Branch', style: TextStyle(fontWeight: FontWeight.w700))
             .tr(),
         centerTitle: true,
         elevation: 10,
@@ -33,10 +29,11 @@ class _DeliveryRequestState extends State<DeliveryRequest> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
+                //Name
                 Padding(
                   padding: const EdgeInsets.all(1.0),
                   child: Text(
-                    'Full Name *',
+                    'Branch name',
                     style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
                   ).tr(),
                 ),
@@ -59,18 +56,19 @@ class _DeliveryRequestState extends State<DeliveryRequest> {
                       FocusScope.of(context).nextFocus();
                     },
                     decoration: InputDecoration(
-                        hintText: tr('Your name'),
                         border: InputBorder.none,
+                        hintText: tr('Baghdad branch 1'),
                         alignLabelWithHint: true,
                         contentPadding:
                             EdgeInsets.symmetric(horizontal: 20, vertical: 12)),
                   ),
                 ),
                 SizedBox(height: 20),
+                //Email
                 Padding(
                   padding: const EdgeInsets.all(1.0),
                   child: Text(
-                    'Phone Number',
+                    'Email',
                     style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
                   ).tr(),
                 ),
@@ -87,24 +85,25 @@ class _DeliveryRequestState extends State<DeliveryRequest> {
                       ],
                       borderRadius: BorderRadius.circular(10)),
                   child: TextFormField(
-                    keyboardType: TextInputType.text,
+                    keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
                     onFieldSubmitted: (v) {
                       FocusScope.of(context).nextFocus();
                     },
                     decoration: InputDecoration(
-                        hintText: tr('+964 770 123 4567'),
                         border: InputBorder.none,
+                        hintText: tr('hintEmail'),
                         alignLabelWithHint: true,
                         contentPadding:
                             EdgeInsets.symmetric(horizontal: 20, vertical: 12)),
                   ),
                 ),
                 SizedBox(height: 20),
+                //Password
                 Padding(
                   padding: const EdgeInsets.all(1.0),
                   child: Text(
-                    'Description *',
+                    'New password',
                     style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
                   ).tr(),
                 ),
@@ -121,71 +120,17 @@ class _DeliveryRequestState extends State<DeliveryRequest> {
                       ],
                       borderRadius: BorderRadius.circular(10)),
                   child: TextFormField(
-                    keyboardType: TextInputType.text,
-                    maxLines: 9,
+                    keyboardType: TextInputType.visiblePassword,
                     textInputAction: TextInputAction.next,
                     onFieldSubmitted: (v) {
                       FocusScope.of(context).nextFocus();
                     },
                     decoration: InputDecoration(
-                        hintText: tr('Write all delivery details here ...'),
                         border: InputBorder.none,
+                        hintText: tr('hintPassword'),
                         alignLabelWithHint: true,
                         contentPadding:
                             EdgeInsets.symmetric(horizontal: 20, vertical: 12)),
-                  ),
-                ),
-                SizedBox(height: 20),
-                Padding(
-                  padding: const EdgeInsets.all(1.0),
-                  child: Text(
-                    'Delivery Type *',
-                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
-                  ).tr(),
-                ),
-                SizedBox(height: 10),
-                Wrap(
-                  spacing: 15,
-                  runSpacing: 15,
-                  children: delivery
-                      .map((item) => DeliveryType(
-                          value: item,
-                          valueHolder: selectedDelivery,
-                          onPressed: () => setState(() {
-                                selectedDelivery = item;
-                              })))
-                      .toList()
-                      .cast<Widget>(),
-                ),
-                SizedBox(height: 20),
-                Padding(
-                  padding: const EdgeInsets.all(1.0),
-                  child: Text(
-                    'Photos',
-                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
-                  ).tr(),
-                ),
-                SizedBox(height: 10),
-                CupertinoButton(
-                  onPressed: () {},
-                  padding: EdgeInsets.zero,
-                  child: Container(
-                    padding: EdgeInsets.all(5),
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.blueGrey.withOpacity(0.2),
-                              blurRadius: 10,
-                              spreadRadius: -7)
-                        ],
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Center(
-                      child: Icon(LineIcons.plus_circle,
-                          color: Theme.of(context).accentColor),
-                    ),
                   ),
                 ),
                 SizedBox(height: 20),
@@ -216,16 +161,14 @@ class _DeliveryRequestState extends State<DeliveryRequest> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: CupertinoButton(
-                        color: Theme
-                            .of(context)
-                            .accentColor,
+                        color: Theme.of(context).accentColor,
                         padding: EdgeInsets.all(15),
                         onPressed: () {},
-                        child: Text("Send request",
-                            style: TextStyle(
-                                fontSize: 19,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w800))
+                        child: Text("Save",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800))
                             .tr()),
                   )),
             ),

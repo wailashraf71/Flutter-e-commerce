@@ -226,7 +226,7 @@ class ProductState extends State<Product> with TickerProviderStateMixin {
               physics: PageScrollPhysics(),
               controller: imagesPageController,
               scrollDirection: Axis.horizontal,
-              itemCount: 4,
+              itemCount: products.length,
               itemBuilder: (BuildContext context, int index) {
                 return CachedNetworkImage(
                     imageUrl: products[widget.id]['image'],
@@ -281,15 +281,16 @@ class ProductState extends State<Product> with TickerProviderStateMixin {
         CupertinoButton(
           onPressed: () => Get.to(ShopView(id: 0)),
           padding: EdgeInsets.zero,
-          child: Text(shops[widget.id]['title'],
+          child: Text(shops[2]['title'],
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
-                  color: Theme.of(context).accentColor.withOpacity(.75))),
+                  color: Theme
+                      .of(context)
+                      .accentColor
+                      .withOpacity(.75))),
         ),
-        SizedBox(
-          height: 30,
-        ),
+        SizedBox(height: 30),
 
         ///Sizes
         Padding(
@@ -309,6 +310,40 @@ class ProductState extends State<Product> with TickerProviderStateMixin {
               values: colors,
               valueHolder: color,
               onPressed: () {}),
+        ),
+
+        SizedBox(height: 10),
+
+        ///Descriptions
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Descriptions',
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Theme
+                          .of(context)
+                          .textTheme
+                          .headline1
+                          .color,
+                      fontWeight: FontWeight.w700))
+                  .tr(),
+              SizedBox(height: 10),
+              Text(
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Theme
+                        .of(context)
+                        .textTheme
+                        .headline1
+                        .color
+                        .withOpacity(0.4)),
+              ),
+            ],
+          ),
         ),
       ],
     );

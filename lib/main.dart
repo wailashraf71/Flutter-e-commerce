@@ -7,7 +7,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 
 void main() {
-  Get.config(defaultTransition: Transition.fadeIn);
   runApp(EasyLocalization(
     child: MyApp(),
     supportedLocales: [
@@ -34,6 +33,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
         EasyLocalization.of(context).delegate,
       ],
       supportedLocales: EasyLocalization.of(context).supportedLocales,

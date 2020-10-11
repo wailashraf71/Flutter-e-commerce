@@ -173,13 +173,11 @@ class _RegisterState extends State<Register> {
                     Wrap(
                       spacing: 15,
                       runSpacing: 15,
-                      children: ['User', 'Delivery guy', 'Shop owner']
-                          .map((item) =>
-                          DeliveryType(
+                      children: ['User', 'Shop owner', 'Company']
+                          .map((item) => DeliveryType(
                               value: item,
                               valueHolder: selectedType,
-                              onPressed: () =>
-                                  setState(() {
+                              onPressed: () => setState(() {
                                     selectedType = item;
                                   })))
                           .toList()

@@ -2,31 +2,24 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/ui/screens/sub/accounts/branches/add_branch.dart';
+import 'package:get/get.dart';
 
-class UserAccount extends StatefulWidget {
-  final bool newUser;
-
-  const UserAccount({Key key, this.newUser = false}) : super(key: key);
-
+class CompanyAccount extends StatefulWidget {
   @override
-  _UserAccountState createState() => _UserAccountState();
+  _CompanyAccountState createState() => _CompanyAccountState();
 }
 
-class _UserAccountState extends State<UserAccount> {
+class _CompanyAccountState extends State<CompanyAccount> {
   TextEditingController _nameController;
   TextEditingController _emailController;
   TextEditingController _phoneController;
-  TextEditingController _ageController;
 
   @override
   void initState() {
-    _nameController =
-        TextEditingController(text: widget.newUser ? null : 'John Doe');
-    _emailController = TextEditingController(
-        text: widget.newUser ? null : 'email@example.com');
-    _phoneController =
-        TextEditingController(text: widget.newUser ? null : '0771 234 5678');
-    _ageController = TextEditingController();
+    _nameController = TextEditingController(text: 'Wolf Express');
+    _emailController = TextEditingController(text: 'email@example.com');
+    _phoneController = TextEditingController(text: '0771 234 5678');
     super.initState();
   }
 
@@ -34,13 +27,19 @@ class _UserAccountState extends State<UserAccount> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.newUser ? 'New Account' : 'My Profile',
-                style: TextStyle(fontWeight: FontWeight.w700))
-            .tr(),
+        title:
+            Text('Main Company', style: TextStyle(fontWeight: FontWeight.w700))
+                .tr(),
         centerTitle: true,
         elevation: 10,
         shadowColor: Colors.black12,
         iconTheme: new IconThemeData(color: Colors.black),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.add_location_outlined),
+            onPressed: () => Get.to(AddBranch()),
+          )
+        ],
       ),
       bottomNavigationBar: buildBottomBar(context),
       body: SingleChildScrollView(
@@ -66,7 +65,7 @@ class _UserAccountState extends State<UserAccount> {
                         borderRadius: BorderRadius.circular(100),
                         child: CachedNetworkImage(
                           imageUrl:
-                              'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png',
+                              'https://www.accountancyage.com/wp-content/themes/accountancy-age/img/company-placeholder.png',
                           fit: BoxFit.cover,
                           placeholder: (context, url) => Container(
                             color: Colors.black12,
@@ -93,7 +92,7 @@ class _UserAccountState extends State<UserAccount> {
               Padding(
                 padding: const EdgeInsets.all(2.0),
                 child: Text(
-                  'Full Name',
+                  'Company Name',
                   style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
                 ).tr(),
               ),
@@ -188,41 +187,6 @@ class _UserAccountState extends State<UserAccount> {
                   },
                   decoration: InputDecoration(
                       hintText: '+964 770 123 4567',
-                      border: InputBorder.none,
-                      alignLabelWithHint: true,
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 12)),
-                ),
-              ),
-              SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.all(2.0),
-                child: Text(
-                  'Age',
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
-                ).tr(),
-              ),
-              SizedBox(height: 10),
-              Container(
-                padding: EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.blueGrey.withOpacity(0.2),
-                          blurRadius: 10,
-                          spreadRadius: -7)
-                    ],
-                    borderRadius: BorderRadius.circular(10)),
-                child: TextFormField(
-                  controller: _ageController,
-                  keyboardType: TextInputType.number,
-                  textInputAction: TextInputAction.next,
-                  onFieldSubmitted: (v) {
-                    FocusScope.of(context).nextFocus();
-                  },
-                  decoration: InputDecoration(
-                      hintText: '...',
                       border: InputBorder.none,
                       alignLabelWithHint: true,
                       contentPadding:

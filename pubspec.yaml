@@ -30,9 +30,9 @@ dependencies:
   cupertino_icons: ^1.0.0
   cached_network_image: ^2.3.2+1
   easy_localization: ^2.3.3
-  get: ^3.12.1
+  get: ^3.13.2
   google_fonts: ^1.1.0
-  font_awesome_flutter: ^8.8.1
+  font_awesome_flutter: ^8.10.0
   carousel_slider: ^2.3.1
   smooth_page_indicator: ^0.2.0
   shimmer: ^1.1.1

@@ -26,7 +26,7 @@ class ProductWidget extends StatelessWidget {
         padding: EdgeInsets.zero,
         onPressed: () => Get.to(Product(
           ///Todo: Remove -1
-          id: productId - 1,
+          id: (productId - 1),
         )),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

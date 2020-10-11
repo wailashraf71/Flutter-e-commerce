@@ -36,7 +36,7 @@ class _CheckoutState extends State<Checkout> {
                   padding: const EdgeInsets.all(1.0),
                   child: Text(
                     'Full Name *',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
                   ).tr(),
                 ),
                 SizedBox(height: 10),
@@ -70,7 +70,7 @@ class _CheckoutState extends State<Checkout> {
                   padding: const EdgeInsets.all(1.0),
                   child: Text(
                     'City *',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
                   ).tr(),
                 ),
                 SizedBox(height: 10),
@@ -116,7 +116,7 @@ class _CheckoutState extends State<Checkout> {
                   padding: const EdgeInsets.all(1.0),
                   child: Text(
                     'Address *',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
                   ).tr(),
                 ),
                 SizedBox(height: 10),
@@ -177,7 +177,7 @@ class _CheckoutState extends State<Checkout> {
                   padding: const EdgeInsets.all(1.0),
                   child: Text(
                     'Phone Number *',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
                   ).tr(),
                 ),
                 SizedBox(height: 10),
@@ -211,7 +211,7 @@ class _CheckoutState extends State<Checkout> {
                   padding: const EdgeInsets.all(1.0),
                   child: Text(
                     'Delivery Type *',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
                   ).tr(),
                 ),
                 SizedBox(height: 10),
@@ -235,7 +235,7 @@ class _CheckoutState extends State<Checkout> {
                   padding: const EdgeInsets.all(1.0),
                   child: Text(
                     'Delivery Sectors',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
                   ).tr(),
                 ),
                 SizedBox(height: 10),

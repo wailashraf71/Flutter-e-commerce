@@ -36,7 +36,7 @@ class _AddProductState extends State<AddProduct> {
                   padding: const EdgeInsets.all(1.0),
                   child: Text(
                     'Product name',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
                   ).tr(),
                 ),
                 SizedBox(height: 10),
@@ -54,10 +54,49 @@ class _AddProductState extends State<AddProduct> {
                   child: TextFormField(
                     keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.next,
+                    style: TextStyle(fontSize: 15),
                     onFieldSubmitted: (v) {
                       FocusScope.of(context).nextFocus();
                     },
                     decoration: InputDecoration(
+                        hintText: tr('Enter product name'),
+                        border: InputBorder.none,
+                        alignLabelWithHint: true,
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 12)),
+                  ),
+                ),
+                SizedBox(height: 20),
+                //Descriptions
+                Padding(
+                  padding: const EdgeInsets.all(1.0),
+                  child: Text(
+                    'Descriptions',
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+                  ).tr(),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  padding: EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.blueGrey.withOpacity(0.2),
+                            blurRadius: 10,
+                            spreadRadius: -7)
+                      ],
+                      borderRadius: BorderRadius.circular(10)),
+                  child: TextFormField(
+                    keyboardType: TextInputType.text,
+                    textInputAction: TextInputAction.next,
+                    style: TextStyle(fontSize: 15),
+                    maxLines: 7,
+                    onFieldSubmitted: (v) {
+                      FocusScope.of(context).nextFocus();
+                    },
+                    decoration: InputDecoration(
+                        hintText: tr('Enter product details'),
                         border: InputBorder.none,
                         alignLabelWithHint: true,
                         contentPadding:
@@ -70,7 +109,7 @@ class _AddProductState extends State<AddProduct> {
                   padding: const EdgeInsets.all(1.0),
                   child: Text(
                     'Photos',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
                   ).tr(),
                 ),
                 SizedBox(height: 10),
@@ -91,217 +130,287 @@ class _AddProductState extends State<AddProduct> {
                         ],
                         borderRadius: BorderRadius.circular(10)),
                     child: Center(
+                      child: Icon(Icons.add_a_photo_outlined,
+                          color: Theme
+                              .of(context)
+                              .accentColor),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                //Attributes
+                Padding(
+                  padding: const EdgeInsets.all(1.0),
+                  child: Text(
+                    'Add attributes',
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+                  ).tr(),
+                ),
+                SizedBox(height: 10),
+                CupertinoButton(
+                  onPressed: () => buildAddAttributes(context),
+                  padding: EdgeInsets.zero,
+                  child: Container(
+                    padding: EdgeInsets.all(5),
+                    width: 100,
+                    height: 60,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.blueGrey.withOpacity(0.2),
+                              blurRadius: 10,
+                              spreadRadius: -7)
+                        ],
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Center(
                       child: Icon(LineIcons.plus_circle,
-                          color: Theme.of(context).accentColor),
+                          color: Theme
+                              .of(context)
+                              .accentColor),
                     ),
                   ),
                 ),
                 SizedBox(height: 20),
-                //Sizes
-                Padding(
-                  padding: const EdgeInsets.all(1.0),
-                  child: Text(
-                    'Sizes',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                  ).tr(),
-                ),
-                SizedBox(height: 10),
                 Row(
                   children: [
-                    Container(
-                      width: 100,
-                      padding: EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.blueGrey.withOpacity(0.2),
-                                blurRadius: 10,
-                                spreadRadius: -7)
-                          ],
-                          borderRadius: BorderRadius.circular(10)),
-                      child: TextFormField(
-                        keyboardType: TextInputType.text,
-                        textInputAction: TextInputAction.next,
-                        onFieldSubmitted: (v) {
-                          FocusScope.of(context).nextFocus();
-                        },
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            alignLabelWithHint: true,
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 12)),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          //Price
+                          Padding(
+                            padding: const EdgeInsets.all(1.0),
+                            child: Text(
+                              'Price',
+                              style: TextStyle(fontWeight: FontWeight.w700,
+                                  fontSize: 18),
+                            ).tr(),
+                          ),
+                          SizedBox(height: 10),
+                          Container(
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Colors.blueGrey.withOpacity(0.2),
+                                      blurRadius: 10,
+                                      spreadRadius: -7)
+                                ],
+                                borderRadius: BorderRadius.circular(10)),
+                            child: TextFormField(
+                              keyboardType: TextInputType.text,
+                              textInputAction: TextInputAction.next,
+                              style: TextStyle(
+                                  fontSize: 15
+                              ),
+                              onFieldSubmitted: (v) {
+                                FocusScope.of(context).nextFocus();
+                              },
+                              decoration: InputDecoration(
+                                  hintText: tr('Enter price'),
+                                  border: InputBorder.none,
+                                  alignLabelWithHint: true,
+                                  contentPadding:
+                                  EdgeInsets.symmetric(
+                                      horizontal: 20, vertical: 12)),
+                            ),
+                          ),
+                          SizedBox(height: 20),
+                        ],
                       ),
                     ),
-                    SizedBox(width: 10),
-                    CupertinoButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: () {},
-                      child: Container(
-                        width: 60,
-                        height: 60,
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.blueGrey.withOpacity(0.2),
-                                  blurRadius: 10,
-                                  spreadRadius: -7)
-                            ],
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Center(
-                          child: Icon(LineIcons.plus_circle,
-                              color: Theme.of(context).accentColor),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                //Colors
-                Padding(
-                  padding: const EdgeInsets.all(1.0),
-                  child: Text(
-                    'Colors',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                  ).tr(),
-                ),
-                SizedBox(height: 10),
-                Row(
-                  children: [
-                    Container(
-                      width: 140,
-                      padding: EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.blueGrey.withOpacity(0.2),
-                                blurRadius: 10,
-                                spreadRadius: -7)
-                          ],
-                          borderRadius: BorderRadius.circular(10)),
-                      child: TextFormField(
-                        keyboardType: TextInputType.text,
-                        textInputAction: TextInputAction.next,
-                        onFieldSubmitted: (v) {
-                          FocusScope.of(context).nextFocus();
-                        },
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            alignLabelWithHint: true,
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 12)),
-                      ),
-                    ),
-                    SizedBox(width: 10),
-                    CupertinoButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: () {},
-                      child: Container(
-                        width: 60,
-                        height: 60,
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.blueGrey.withOpacity(0.2),
-                                  blurRadius: 10,
-                                  spreadRadius: -7)
-                            ],
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Center(
-                          child: Icon(LineIcons.plus_circle,
-                              color: Theme.of(context).accentColor),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20),
+                    SizedBox(width: 15),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          //Quantity
+                          Padding(
+                            padding: const EdgeInsets.all(1.0),
+                            child: Text(
+                              'Quantity',
+                              style: TextStyle(fontWeight: FontWeight.w700,
+                                  fontSize: 18),
+                            ).tr(),
+                          ),
+                          SizedBox(height: 10),
+                          Container(
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Colors.blueGrey.withOpacity(0.2),
+                                      blurRadius: 10,
+                                      spreadRadius: -7)
+                                ],
+                                borderRadius: BorderRadius.circular(10)),
+                            child: TextFormField(
+                              keyboardType: TextInputType.text,
+                              textInputAction: TextInputAction.next,
+                              style: TextStyle(
+                                  fontSize: 15
+                              ),
 
-                //Quantity
-                Padding(
-                  padding: const EdgeInsets.all(1.0),
-                  child: Text(
-                    'Quantity',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                  ).tr(),
-                ),
-                SizedBox(height: 10),
-                Container(
-                  width: 150,
-                  padding: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.blueGrey.withOpacity(0.2),
-                            blurRadius: 10,
-                            spreadRadius: -7)
-                      ],
-                      borderRadius: BorderRadius.circular(10)),
-                  child: TextFormField(
-                    keyboardType: TextInputType.text,
-                    textInputAction: TextInputAction.next,
-                    onFieldSubmitted: (v) {
-                      FocusScope.of(context).nextFocus();
-                    },
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        alignLabelWithHint: true,
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 12)),
-                  ),
-                ),
-                SizedBox(height: 20),
-                //Price
-                Padding(
-                  padding: const EdgeInsets.all(1.0),
-                  child: Text(
-                    'Price',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                  ).tr(),
-                ),
-                SizedBox(height: 10),
-                Container(
-                  width: 200,
-                  padding: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.blueGrey.withOpacity(0.2),
-                            blurRadius: 10,
-                            spreadRadius: -7)
-                      ],
-                      borderRadius: BorderRadius.circular(10)),
-                  child: TextFormField(
-                    keyboardType: TextInputType.text,
-                    textInputAction: TextInputAction.next,
-                    onFieldSubmitted: (v) {
-                      FocusScope.of(context).nextFocus();
-                    },
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        alignLabelWithHint: true,
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 12)),
-                  ),
-                ),
-                SizedBox(height: 20),
+                              onFieldSubmitted: (v) {
+                                FocusScope.of(context).nextFocus();
+                              },
+                              decoration: InputDecoration(
+                                  hintText: '0',
+                                  border: InputBorder.none,
+                                  alignLabelWithHint: true,
+                                  contentPadding:
+                                  EdgeInsets.symmetric(
+                                      horizontal: 20, vertical: 12)),
+                            ),
+                          ),
+                          SizedBox(height: 20),
+                        ],
+                      ),
+                    ),
+                  ],
+                )
               ]),
         ),
       ),
     );
   }
 
+  Future buildAddAttributes(BuildContext context) {
+    return showDialog(
+        context: context, builder: (BuildContext context) {
+      return AlertDialog(
+        backgroundColor: Theme
+            .of(context)
+            .scaffoldBackgroundColor,
+        elevation: 0.0,
+        content: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(1.0),
+              child: Text(
+                'Attribute name',
+                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+              ).tr(),
+            ),
+            SizedBox(height: 10),
+            Container(
+              padding: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.blueGrey.withOpacity(0.2),
+                        blurRadius: 10,
+                        spreadRadius: -7)
+                  ],
+                  borderRadius: BorderRadius.circular(10)),
+              child: TextFormField(
+                keyboardType: TextInputType.text,
+                textInputAction: TextInputAction.next,
+                style: TextStyle(fontSize: 15),
+                onFieldSubmitted: (v) {
+                  FocusScope.of(context).nextFocus();
+                },
+                decoration: InputDecoration(
+                    hintText: tr('Like: Size'),
+                    border: InputBorder.none,
+                    alignLabelWithHint: true,
+                    contentPadding:
+                    EdgeInsets.symmetric(horizontal: 20, vertical: 12)),
+              ),
+            ),
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.all(1.0),
+              child: Text(
+                'Attribute values',
+                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+              ).tr(),
+            ),
+            SizedBox(height: 10),
+            Container(
+              padding: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.blueGrey.withOpacity(0.2),
+                        blurRadius: 10,
+                        spreadRadius: -7)
+                  ],
+                  borderRadius: BorderRadius.circular(10)),
+              child: TextFormField(
+                keyboardType: TextInputType.text,
+                textInputAction: TextInputAction.next,
+                style: TextStyle(fontSize: 15),
+                onFieldSubmitted: (v) {
+                  FocusScope.of(context).nextFocus();
+                },
+                decoration: InputDecoration(
+                    hintText: '...',
+                    border: InputBorder.none,
+                    alignLabelWithHint: true,
+                    contentPadding:
+                    EdgeInsets.symmetric(horizontal: 20, vertical: 12)),
+              ),
+            ),
+            SizedBox(height: 20),
+            Container(
+              decoration: BoxDecoration(
+                  color: Theme
+                      .of(context)
+                      .primaryColor,
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black.withOpacity(0.03),
+                        blurRadius: 8,
+                        spreadRadius: 3)
+                  ]),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Center(
+                    child: Container(
+                        width: MediaQuery
+                            .of(context)
+                            .size
+                            .width * .9,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: CupertinoButton(
+                              color: Theme
+                                  .of(context)
+                                  .accentColor,
+                              padding: EdgeInsets.all(15),
+                              onPressed: () {},
+                              child: Text("Add",
+                                  style: TextStyle(
+                                      fontSize: 19,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w800))
+                                  .tr()),
+                        )),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      );
+    });
+  }
+
   Widget buildBottomBar(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor,
+          color: Theme
+              .of(context)
+              .primaryColor,
           boxShadow: [
             BoxShadow(
                 color: Colors.black.withOpacity(0.03),
@@ -319,14 +428,16 @@ class _AddProductState extends State<AddProduct> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: CupertinoButton(
-                        color: Theme.of(context).accentColor,
+                        color: Theme
+                            .of(context)
+                            .accentColor,
                         padding: EdgeInsets.all(15),
                         onPressed: () {},
-                        child: Text("Send request",
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w800))
+                        child: Text("Save",
+                            style: TextStyle(
+                                fontSize: 19,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w800))
                             .tr()),
                   )),
             ),

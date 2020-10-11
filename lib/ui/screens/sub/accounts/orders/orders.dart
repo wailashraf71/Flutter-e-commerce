@@ -37,9 +37,10 @@ class _OrdersState extends State<Orders> {
                   children: [
                     Text(
                       'Order id - 423621',
-                      style: TextStyle(fontSize: 18),
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
                     ).tr(),
-                    SizedBox(height: 15),
+                    SizedBox(height: 5),
                     Text(
                       'We will start shipping your products soon',
                       style: TextStyle(
